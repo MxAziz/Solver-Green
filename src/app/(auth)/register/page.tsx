@@ -141,13 +141,14 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F7F8] px-4 py-8 sm:px-6 sm:py-12 lg:py-20">
+    <div className="min-h-screen bg-[#F7F7F8] rounded-2xl px-2 py-6 sm:px-6 sm:py-12 lg:py-20">
       <Toaster position="top-center" richColors closeButton />
 
-      <div className="mx-auto w-full max-w-xl lg:max-w-7xl">
+      <div className="mx-auto w-full max-w-2xl lg:max-w-6xl">
         <div className="mb-6 text-center sm:mb-8 lg:mb-10">
-          <span className="font-mono text-[11px] tracking-[0.2em] text-[#5B4CE0]">
-            EVENT REGISTRATION
+          {/* image */}
+          <span className="font-mono text-[9px] lg:text-[11px] tracking-[0.2em] text-[#5B4CE0]">
+            RECRUITMENT 7.0 REGISTRATION
           </span>
           <h1 className="mt-2 font-serif text-2xl font-semibold text-[#151A23] sm:text-3xl lg:text-4xl">
             Reserve your seat
@@ -165,18 +166,18 @@ export default function RegisterPage() {
           >
             {/* Name */}
             <div className="sm:col-span-2">
-              <Field label="Full name" error={errors.name?.message}>
+              <Field label="Full name (As per Academic Records) *" error={errors.name?.message}>
                 <input
                   {...register("name", { required: "Name is required" })}
                   type="text"
-                  placeholder="Muhammad Aziz"
+                  placeholder="Enter your full name"
                   className={inputClass(!!errors.name)}
                 />
               </Field>
             </div>
 
             {/* Email */}
-            <Field label="Email" error={errors.email?.message}>
+            <Field label="Email *" error={errors.email?.message}>
               <input
                 {...register("email", {
                   required: "Email is required",
@@ -192,7 +193,7 @@ export default function RegisterPage() {
             </Field>
 
             {/* Phone */}
-            <Field label="Phone number" error={errors.number?.message}>
+            <Field label="Phone number *" error={errors.number?.message}>
               <input
                 {...register("number", {
                   required: "Phone number is required",
@@ -208,7 +209,7 @@ export default function RegisterPage() {
             </Field>
 
             {/* Roll */}
-            <Field label="Roll" error={errors.roll?.message}>
+            <Field label="Roll *" error={errors.roll?.message}>
               <input
                 {...register("roll", {
                   required: "Roll is required",
@@ -216,13 +217,13 @@ export default function RegisterPage() {
                   validate: (v) => !Number.isNaN(v) || "Roll must be a number",
                 })}
                 type="number"
-                placeholder="43253"
+                placeholder="Enter your Roll number"
                 className={`${inputClass(!!errors.roll)} font-mono`}
               />
             </Field>
 
             {/* Department */}
-            <Field label="Department" error={errors.department?.message}>
+            <Field label="Department *" error={errors.department?.message}>
               <select
                 {...register("department", { required: "Select a department" })}
                 defaultValue=""
@@ -241,24 +242,24 @@ export default function RegisterPage() {
 
             {/* Session */}
             <div className="sm:col-span-2 lg:col-span-1">
-              <Field label="Session" error={errors.session?.message}>
+              <Field label="Session *" error={errors.session?.message}>
                 <input
                   {...register("session", { required: "Session is required" })}
                   type="text"
-                  placeholder="2023-24"
+                  placeholder="2022-23"
                   className={inputClass(!!errors.session)}
                 />
               </Field>
             </div>
 
             {/* Facebook */}
-            <Field label="Facebook profile" error={errors.facebook?.message}>
+            <Field label="Facebook profile *" error={errors.facebook?.message}>
               <input
                 {...register("facebook", {
                   required: "Facebook profile link is required",
                 })}
                 type="url"
-                placeholder="https://facebook.com/aziz"
+                placeholder="https://facebook.com/mxaziz10"
                 className={inputClass(!!errors.facebook)}
               />
             </Field>
@@ -268,7 +269,7 @@ export default function RegisterPage() {
               <input
                 {...register("linkedin")}
                 type="url"
-                placeholder="https://linkedin.com/in/aziz"
+                placeholder="https://linkedin.com/in/mxaziz"
                 className={inputClass(!!errors.linkedin)}
               />
             </Field>
@@ -284,10 +285,10 @@ export default function RegisterPage() {
             </Field>
 
             {/* Transaction ID */}
-            <Field label="Transaction ID" error={errors.transactionId?.message}>
+            <Field label="Transaction ID / ID Number *" error={errors.transactionId?.message}>
               <input
                 {...register("transactionId", {
-                  required: "Transaction ID is required",
+                  required: "Transaction ID or ID Number is required",
                 })}
                 type="text"
                 placeholder="TXN123587"
@@ -297,11 +298,11 @@ export default function RegisterPage() {
 
             {/* Message */}
             <div className="sm:col-span-2">
-              <Field label="Message" error={errors.message?.message}>
+              <Field label="Why do you want to join Solver Green ?" error={errors.message?.message}>
                 <textarea
                   {...register("message", { required: "Please add a short message" })}
                   rows={3}
-                  placeholder="Hello"
+                  placeholder="Tell us about your interest in Solver Green"
                   className={`${inputClass(!!errors.message)} resize-none`}
                 />
               </Field>
@@ -312,9 +313,9 @@ export default function RegisterPage() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="mt-2 w-full rounded-lg bg-[#4C3AE3] py-3 text-sm font-medium text-white transition hover:bg-[#3E2ED1] disabled:cursor-not-allowed disabled:opacity-60 sm:text-base"
+                className="mt-2 w-full rounded-lg bg-[#298c65] py-4 text-md font-medium text-white transition hover:bg-[#217a58] cursor-pointer disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {submitting ? "Registering..." : "Complete registration"}
+                {submitting ? "Registering..." : "Complete Registration"}
               </button>
             </div>
           </form>
