@@ -193,17 +193,17 @@ export default function RegisterPage() {
             </Field>
 
             {/* Phone */}
-            <Field label="Phone number *" error={errors.number?.message}>
+            <Field label="Whatsapp number *" error={errors.number?.message}>
               <input
                 {...register("number", {
-                  required: "Phone number is required",
+                  required: "Whatsapp number is required",
                   pattern: {
                     value: /^01[3-9]\d{8}$/,
                     message: "Enter a valid Bangladeshi number, e.g. 01312345678",
                   },
                 })}
                 type="tel"
-                placeholder="01312345678"
+                placeholder="Enter a valid Bangladeshi Whatsapp number"
                 className={inputClass(!!errors.number)}
               />
             </Field>
@@ -302,7 +302,7 @@ export default function RegisterPage() {
                 <textarea
                   {...register("message", { required: "Please add a short message" })}
                   rows={3}
-                  placeholder="Tell us about your interest in Solver Green"
+                  placeholder="Tell us about your interest in Solver Green..."
                   className={`${inputClass(!!errors.message)} resize-none`}
                 />
               </Field>
