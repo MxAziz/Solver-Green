@@ -15,7 +15,7 @@ export default function Home() {
         />
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-xs text-4xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Fucking Wordpress website, I can build a Next.js Project for Solver Green.
+          This website is under Development
           </h1>
 
         </div>
