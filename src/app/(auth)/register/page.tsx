@@ -77,7 +77,7 @@ function extractErrorMessage(result: unknown, fallback: string): string {
 
 export default function RegisterPage() {
   const [submitting, setSubmitting] = useState(false);
-  const backendUrl = process.env.SERVER_BASE_URL || "http://localhost:5000/api/v1";
+  // const backendUrl = process.env.SERVER_BASE_URL || "http://localhost:5000/api/v1";
 
   const {
     register,
@@ -112,7 +112,7 @@ export default function RegisterPage() {
       if (!data.linkedin?.trim()) delete payload.linkedin;
       if (!data.photo?.trim()) delete payload.photo;
 
-      const res = await fetch(`${backendUrl}/user/`, {
+      const res = await fetch(`https://solver-green-server-production.up.railway.app/api/v1/user/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
