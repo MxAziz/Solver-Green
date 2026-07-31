@@ -38,7 +38,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="/courses" className="px-6 py-4 bg-amber-400 rounded-xl text-black">Start Learning</Link>
+              <Link href="/register" className="px-6 py-4 bg-amber-400 rounded-xl text-black">Register Now</Link>
             </li>
           </ul>
         </div>
