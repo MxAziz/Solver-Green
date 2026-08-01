@@ -350,7 +350,7 @@ export default function RegisterPage() {
             {/* ---- Section: Academic details ---- */}
             <SectionLabel text="academic_details" />
 
-            <Field label="Roll Number / (Batch Number. Ex: 18) *" error={errors.roll?.message}>
+            <Field label="(Roll Number. Ex: 230626) / (Batch Number. Ex: 18) *" error={errors.roll?.message}>
               <IconInput icon={Hash} hasError={!!errors.roll}>
                 <input
                   {...register("roll", {
