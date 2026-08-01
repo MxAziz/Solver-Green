@@ -725,13 +725,13 @@ export default function RegisterPage() {
             {/* ---- Section: Academic details ---- */}
             <SectionLabel text="academic_details" />
 
-            <Field label="Roll *" error={errors.roll?.message}>
+            <Field label="Roll Number / (Batch Number. Ex: 18) *" error={errors.roll?.message}>
               <IconInput icon={Hash} hasError={!!errors.roll}>
                 <input
                   {...register("roll", {
-                    required: "Roll is required",
+                    required: "Roll/Batch Number is required",
                     valueAsNumber: true,
-                    validate: (v) => !Number.isNaN(v) || "Roll must be a number",
+                    validate: (v) => !Number.isNaN(v) || "Roll/Batch Number must be a number",
                   })}
                   type="number"
                   placeholder="Enter your Roll number"
