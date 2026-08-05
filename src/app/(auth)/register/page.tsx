@@ -43,11 +43,11 @@ const body = Inter({
 type RegisterFormValues = {
   name: string;
   email: string;
-  roll: number;
+  roll: string;
   department: string;
   session: string;
   number: string;
-  facebook: string;
+  facebook?: string;
   linkedin?: string;
   photo?: string;
   transactionId: string;
@@ -166,7 +166,7 @@ export default function RegisterPage() {
       // instead of sending "" (which fails backend url-format validation).
       const payload: Record<string, unknown> = {
         ...data,
-        roll: Number(data.roll),
+        roll: data.roll.trim(),
       };
 
       if (!data.linkedin?.trim()) delete payload.linkedin;
@@ -353,13 +353,9 @@ export default function RegisterPage() {
             <Field label="(Roll Number. Ex: 230626) / (Batch Number. Ex: 18) *" error={errors.roll?.message}>
               <IconInput icon={Hash} hasError={!!errors.roll}>
                 <input
-                  {...register("roll", {
-                    required: "Roll/Batch Number is required",
-                    valueAsNumber: true,
-                    validate: (v) => !Number.isNaN(v) || "Roll/Batch Number must be a number",
-                  })}
-                  type="number"
-                  placeholder="Enter your Roll number"
+                  {...register("roll", { required: "Roll/Batch Number is required", })}
+                  type="text"
+                  placeholder="Enter your Roll/Batch number"
                   className={`${inputClass(!!errors.roll)} font-mono-brand`}
                 />
               </IconInput>
@@ -400,7 +396,7 @@ export default function RegisterPage() {
             {/* ---- Section: Social links ---- */}
             <SectionLabel text="social_links" />
 
-            <Field label="Facebook profile *" error={errors.facebook?.message}>
+            <Field label="Facebook profile " error={errors.facebook?.message}>
               <IconInput icon={Link2} hasError={!!errors.facebook}>
                 <input
                   {...register("facebook", {
@@ -558,6 +554,11 @@ export default function RegisterPage() {
               </button>
               <p className="mt-3 text-center text-xs text-[#6B7280]">
                 We&apos;ll confirm your seat by email once your payment is verified.
+              </p>
+              <p className="mt-3 text-center text-xs text-[#6B7280]">
+                Developed by <a href="https://www.facebook.com/mxaziz10" target="_blank" rel="noopener noreferrer" className="text-[#1F7A4D] hover:underline">
+                  Muhammad Aziz
+                </a>
               </p>
             </div>
           </form>
