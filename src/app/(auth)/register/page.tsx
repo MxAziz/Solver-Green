@@ -137,6 +137,7 @@ export default function RegisterPage() {
     defaultValues: {
       name: "",
       email: "",
+      roll: "",
       department: "",
       session: "",
       number: "",
