@@ -269,7 +269,7 @@ function MemberCard({ member, onVerify, isLoading }: { member: Member; onVerify:
       {/* Top row */}
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#0E2B1C] text-sm font-semibold text-white">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#0E2B1C] text-sm font-semibold">
             {member.photo && !imgError ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -293,10 +293,10 @@ function MemberCard({ member, onVerify, isLoading }: { member: Member; onVerify:
         <button
           onClick={() => onVerify(member.id)}
           disabled={isLoading || member.isVerified}
-          className={`flex items-center gap-1 rounded-full px-3 py-1 text-xs font-medium text-white transition disabled:opacity-50 ${
+          className={`flex items-center gap-1 rounded-full px-3 py-1 text-[10px] font-medium transition disabled:opacity-50 ${
             member.isVerified
-              ? "bg-green-600 hover:bg-green-700"
-              : "bg-[#dabf83] px-2.5 py-1 text-[10px] font-medium text-[#1F7A4D]"
+              ? "bg-green-600 hover:bg-green-700 text-white"
+              : "bg-[#fae5b9] text-black px-2.5 py-1 font-medium"
           }`}
         >
           {isLoading ? (
