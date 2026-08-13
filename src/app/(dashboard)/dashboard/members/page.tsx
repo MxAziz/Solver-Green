@@ -106,7 +106,8 @@ export default function MembersPage() {
     return members.filter((m) => {
       const matchesNumber = digits.length > 0 && m.number.replace(/\D/g, "").includes(digits);
       const matchesName = nameQuery.length > 0 && m.name.toLowerCase().includes(nameQuery);
-      const matchesSearch = search.trim() === "" || matchesNumber || matchesName;
+      const matchTransactionId = nameQuery.length > 0 && m.transactionId.toLowerCase().includes(nameQuery);
+      const matchesSearch = search.trim() === "" || matchesNumber || matchesName || matchTransactionId;
 
       const matchesStatus =
         statusFilter === "all" ||
@@ -185,7 +186,7 @@ export default function MembersPage() {
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search by phone number or name..."
+            placeholder="Search by phone number, name, or transaction ID..."
             className="w-full rounded-xl border border-[#E5E7EB] bg-[#F9FAFB] py-2.5 pl-10 pr-3.5 text-sm text-[#151A23] outline-none transition placeholder:text-[#9CA3AF] focus:border-[#1F7A4D] focus:bg-white focus:ring-2 focus:ring-[#1F7A4D]/15"
           />
         </div>
